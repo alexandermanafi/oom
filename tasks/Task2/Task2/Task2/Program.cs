@@ -11,16 +11,29 @@ namespace Task2
 
 			Console.WriteLine ("{0}  {1} \n", modul_a.Marke, modul_a.Name);
 			Console.WriteLine ("{0}  {1} \n", modul_b.Marke, modul_b.Name);
+
+			var arr = new Solarmodul["Trina Solar","TS315", "Yingli", "YS315", "TSMC", "TSM315"];
+
+			for (var i = 0; i < 3; i++)
+			{
+				Console.WriteLine(arr.name);
+			}
+		
 		}
 
-		class Solarmodul
+		interface A
+		{
+			void UpdatePreis();
+		}
+
+		class Solarmodul : A
 		{
 			private decimal m_preis;
 
 			public Solarmodul(string name, string marke)
 			{
-				if (string.IsNullOrWhiteSpace(marke)) throw new ArgumentException("marke must not be empty.", nameof(marke));
-				if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name must not be empty.", nameof(name));
+				if (string.IsNullOrWhiteSpace(marke)) throw new ArgumentException("marke darf nicht leer sein.", nameof(marke));
+				if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name darf nicht leer sein.", nameof(name));
 			
 				Name = name;
 				Marke = marke;
@@ -34,9 +47,33 @@ namespace Task2
 				return m_preis;
 			}
 
-			public void UpdatePreis(decimal value)
+			public override void UpdatePreis(decimal value)
 			{
 				m_preis = value;
+			}
+		}
+
+		class Wechselrichter : A
+		{
+			private decimal m_preis;
+
+			public Wechselrichter (string name, string marke)
+			{
+				if (string.IsNullOrWhiteSpace(marke)) throw new ArgumentException("marke darf nicht leer sein.", nameof(marke));
+				if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name darf nicht leer sein.", nameof(name));
+
+				Name = name;
+				Marke = marke;
+			}
+
+			public decimal GetPreis()
+			{ 
+				return m_preis;
+			}
+
+			public override void UpdatePreis(decimal value)
+			{
+				m_preis = value * 0.75;
 			}
 		}
 	}
