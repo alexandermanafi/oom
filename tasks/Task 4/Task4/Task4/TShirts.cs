@@ -3,43 +3,82 @@ using NUnit.Framework;
 
 namespace Task4
 {
-	[TestFixture]
-
 	public class TShirts : IKleidung
 	{
-		public string m_marke{ get; set; }
-		public string m_größe{ get; set; }
-		public string m_farbe{ get; set; }
-		private double m_preis{ get; set; }
+		private string m_marke;
+		private string m_groesse;
+		private string m_farbe;
+		private double m_preis;
+
+		public string Marke
+		{
+			get
+			{
+				return m_marke;
+			}
+
+			set
+			{
+				m_marke = value;
+			}
+		}
+
+		public string Farbe
+		{
+			get
+			{
+				return m_farbe;
+			}
+
+			set
+			{
+				m_farbe = value;
+			}
+		}
+
+		public string Groesse
+		{
+			get
+			{
+				return m_groesse;
+			}
+
+			set
+			{
+				m_groesse = value;
+			}
+		}
+
+		public double Preis
+		{
+			get
+			{
+				return m_preis;
+			}
+
+			set
+			{
+				if (value < 0) throw new Exception ("Preis darf nicht negativ sein.");
+				m_preis = value;
+			}
+		}
 
 
-		public TShirts(string Marke, string Farbe, string Größe, double Preis)
+		public TShirts(string Marke, string Farbe, string Groesse, double Preis)
 		{
 			if (Preis < 0) throw new ArgumentOutOfRangeException ("Preis darf nicht kleiner 0 sein.");
 
 			m_marke = Marke; 
 			m_farbe = Farbe;
-			m_größe = Größe;
+			m_groesse = Groesse;
 			m_preis = Preis;
 		}
 
-		[Test]
-		public double GetPrice()
+		public void UpdatePreis(double newprice)
 		{
-			return m_preis;
-		}
+			if (newprice < 0) throw new ArgumentOutOfRangeException ("Preis darf nicht kleiner 0 sein.");
 
-		[Test]
-		public void UpdatePrice(double newpreis)
-		{
-			if (newpreis < 0) throw new ArgumentOutOfRangeException ("Preis muss größer 0 sein");
-			m_preis = newpreis;
-		}
-
-		[Test]
-		public void DoublePrice()
-		{
-			m_preis = m_preis * 2;
+			m_preis = newprice;
 		}
 	}
 }

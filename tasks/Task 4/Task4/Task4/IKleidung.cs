@@ -3,13 +3,13 @@ using NUnit.Framework;
 
 namespace Task4
 {
-	
 	public interface IKleidung
 	{
-		string m_marke{ get; set; }
+		string Farbe{get; set;}
+		string Marke{get; set;}
+		string Groesse{get; set;}
+		double Preis{get; set;} 
 
-		void UpdatePrice(double newpreis);
-
-		double GetPrice();
+		void UpdatePreis (double newprice);
 	}
 }
