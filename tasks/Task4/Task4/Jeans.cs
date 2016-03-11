@@ -1,5 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Task4
 {
@@ -64,7 +66,7 @@ namespace Task4
 			}
 		}
 
-
+		[JsonConstructor]
 		public Jeans(string Marke, string Farbe, string Groesse, double Preis)
 		{
 			if (Preis < 0) throw new ArgumentOutOfRangeException ("Preis darf nicht kleiner 0 sein.");
