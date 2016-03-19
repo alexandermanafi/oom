@@ -2,6 +2,9 @@
 using NUnit.Framework;
 using Newtonsoft.Json;
 using System.IO;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
+using System.Reactive.Subjects;
 
 namespace Task4
 {
@@ -25,7 +28,8 @@ namespace Task4
 
 			//Preis für ein Objekt mit UpdatePrice ändern und aktualisierten preis ausgeben
 			Console.WriteLine ("\nBitte neuen Preis für Jean a schreiben:");
-			double a_preis = Convert.ToDouble(Console.ReadLine());;
+			Task <double> a_preis = Task.Run (Convert.ToDouble (Console.ReadLine ()));
+
 			a.UpdatePreis (a_preis);
 			Console.WriteLine ("\nPreis von Jeans a der Marke {0} zum Zeitpunkt 2: {1}\n", a.Marke, a.Preis);
 

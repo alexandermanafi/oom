@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{50B6225B-A4B2-47A4-9C1C-690634E25C79}</ProjectGuid>
+    <ProjectGuid>{1047DB39-03D9-4147-A7B1-0F95A72C280E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task4</RootNamespace>
-    <AssemblyName>Task4</AssemblyName>
+    <RootNamespace>Task6</RootNamespace>
+    <AssemblyName>Task6</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -31,12 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Reactive.Interfaces">
       <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
     </Reference>
@@ -51,16 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Jeans.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="IKleidung.cs" />
-    <Compile Include="TShirts.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="Name.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Jeans.json" />
   </ItemGroup>
 </Project>
